@@ -2,8 +2,9 @@ import * as Battery from 'expo-battery';
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect, useState } from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import themes from '../themes';
 
-const NivelBateria = () => {
+const NivelBateria = (props) => {
   
   const [disponivel,setDisponivel] = useState(false)
   const [nivelDeBateria,setNivelDeBateria] = useState(0)
@@ -33,7 +34,7 @@ const NivelBateria = () => {
         {disponivel &&
             <>
                 <View style={styles.barraBateria}>
-                    <View style={[styles.quantidadeBarraBateria, {width: `${nivelDeBateria}%`}]} >
+                    <View id='bateria' style={[styles.quantidadeBarraBateria, {backgroundColor: props.corFundo ,width: `${nivelDeBateria}%`}]} >
                         {carregando &&
                             <MaterialCommunityIcons name="lightning-bolt" size={50} color="black" />
                         }
@@ -74,22 +75,22 @@ const styles = StyleSheet.create({
   },
   quantidadeBarraBateria: {
     height: "100%",
-    backgroundColor: "#3EE023",
     borderWidth: 1,
     borderColor: "black",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   textosBateria: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    margin: 10,
   },
   textoBateria: {
     fontSize: 15,
     fontWeight: '300',
-    marginBottom: 5
+    marginBottom: 5,
   }
 });
 
