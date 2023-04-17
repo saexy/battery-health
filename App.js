@@ -1,25 +1,19 @@
-import React, { useState} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import NivelBateria from "./src/components/NivelBateria"
-import Temas from "./src/components/Temas"
-import { Dimensions } from 'react-native';
-import themes from './src/themes';
-import Configuracoes from './src/components/Configuracoes';
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
+import NivelBateria from "./src/components/NivelBateria";
+import Temas from "./src/components/Temas";
+import Configuracoes from "./src/components/Configuracoes";
+import themes from "./src/themes";
 
-export default function App(props) {
-
-  const [corFundo, setCorFundo] = useState(themes.corFundo.padrao); // cor inicial
-
-  const handleMudaCorFundo = (color) => {
-    setCorFundo(color);
-  }
+export default function App() {
+  const [tema, setTema] = useState(themes.corFundo.padrao);
 
   return (
     <View style={styles.conteudo}>
       <Text style={styles.titulo}>Battery Health</Text>
-      <NivelBateria corFundo={corFundo} />
-      <Temas onChange={handleMudaCorFundo}/>
-      <Configuracoes corFundo={corFundo}></Configuracoes>
+      <NivelBateria tema={tema} />
+      <Temas onChange={setTema} />
+      <Configuracoes tema={tema}></Configuracoes>
     </View>
   );
 }
@@ -32,12 +26,12 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
-    padding: 40
+    padding: 40,
   },
   titulo: {
     fontSize: 20,
     fontWeight: "bold",
     color: themes.primaria,
-    marginBottom: 20
-  }
+    marginBottom: 20,
+  },
 });
