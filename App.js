@@ -4,6 +4,7 @@ import NivelBateria from "./src/components/NivelBateria"
 import Temas from "./src/components/Temas"
 import { Dimensions } from 'react-native';
 import themes from './src/themes';
+import Configuracoes from './src/components/Configuracoes';
 
 export default function App(props) {
 
@@ -18,6 +19,7 @@ export default function App(props) {
       <Text style={styles.titulo}>Battery Health</Text>
       <NivelBateria corFundo={corFundo} />
       <Temas onChange={handleMudaCorFundo}/>
+      <Configuracoes corFundo={corFundo}></Configuracoes>
     </View>
   );
 }

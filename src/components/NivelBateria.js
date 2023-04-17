@@ -2,7 +2,6 @@ import * as Battery from 'expo-battery';
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect, useState } from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import themes from '../themes';
 
 const NivelBateria = (props) => {
   

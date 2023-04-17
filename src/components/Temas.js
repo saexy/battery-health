@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginBottom: 5,
+        marginBottom: 15,
     },
     botoes: {
         display: 'flex',
