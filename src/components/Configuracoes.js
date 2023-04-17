@@ -4,13 +4,17 @@ import themes from "../themes";
 import * as Battery from "expo-battery";
 
 const Configuracoes = (props) => {
+  
   const [modoBateriaBaixa, setModoBateriaBaixa] = useState(false);
   const [modoOtimizacaoBateria, setModoOtimizacaoBateria] = useState(false);
 
   const atualizarInformacoes = () => {
+    //Loop infinito para atualizar as informações
     let intervalo = setInterval(async () => {
+      //Atualizar estado de acordo com o modo de bateria baixa
       const modoBateriaBaixaInfos = await Battery.isLowPowerModeEnabledAsync();
       setModoBateriaBaixa(modoBateriaBaixaInfos);
+      //Atualizar estado de acordo com o modo de otimização de bateria
       const modoOtimizacaoBateriaInfos =
         await Battery.isBatteryOptimizationEnabledAsync();
       setModoOtimizacaoBateria(modoOtimizacaoBateriaInfos);
@@ -21,10 +25,9 @@ const Configuracoes = (props) => {
     atualizarInformacoes();
   }, []);
 
-  const handlePress = () => {};
   return (
     <View style={styles.config}>
-      <Text style={styles.titulo} onPress={handlePress}>
+      <Text style={styles.titulo}>
         Configurações
       </Text>
       <View style={styles.actions}>

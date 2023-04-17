@@ -5,6 +5,7 @@ import themes from "../themes";
 const Temas = (props) => {
 
   const mudaTema = (cor) => {
+    //Pegando propriedade passada e atribuindo uma cor
     props.onChange(themes.tema[cor]);
   };
 

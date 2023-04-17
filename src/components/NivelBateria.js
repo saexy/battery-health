@@ -4,16 +4,21 @@ import { useEffect, useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const NivelBateria = (props) => {
+  
   const [disponivel, setDisponivel] = useState(false);
   const [nivelDeBateria, setNivelDeBateria] = useState(0);
   const [carregando, setCarregando] = useState(false);
 
   const atualizarInformacoes = () => {
+    //Loop infinito para atualizar as informações
     let intervalo = setInterval(async () => {
+      //Atualizar estado de acordo com a disponibilidade das informações de bateria
       const disponivelInfos = await Battery.isAvailableAsync();
       setDisponivel(disponivelInfos);
+      //Atualizar estado de acordo com o nível de bateria
       const nvlDeBateria = await Battery.getBatteryLevelAsync();
       setNivelDeBateria((nvlDeBateria * 100).toFixed(0));
+      //Atualizar estado de acordo com o estado da bateria
       const estadoBateria = await Battery.getBatteryStateAsync();
       if (estadoBateria == Battery.BatteryState.CHARGING) {
         setCarregando(true);

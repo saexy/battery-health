@@ -6,6 +6,8 @@ import Configuracoes from "./src/components/Configuracoes";
 import themes from "./src/themes";
 
 export default function App() {
+  
+  //Estado do tema dos componentes do aplicativo
   const [tema, setTema] = useState(themes.tema.verde);
 
   return (
