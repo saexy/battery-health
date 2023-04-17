@@ -2,16 +2,10 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import themes from "../themes";
 
-const Cores = {
-  verde: themes.corFundo.padrao,
-  vermelho: themes.corFundo.cor2,
-  azul: themes.corFundo.cor3,
-};
-
 const Temas = (props) => {
 
   const mudaTema = (cor) => {
-    props.onChange(Cores[cor]);
+    props.onChange(themes.tema[cor]);
   };
 
   return (
@@ -19,15 +13,15 @@ const Temas = (props) => {
       <Text style={styles.titulo}>Temas</Text>
       <View style={styles.botoes}>
         <TouchableOpacity
-          style={[styles.botao, { backgroundColor: themes.corFundo.padrao }]}
+          style={[styles.botao, { backgroundColor: themes.tema.verde }]}
           onPress={() => mudaTema("verde")}
         ></TouchableOpacity>
         <TouchableOpacity
-          style={[styles.botao, { backgroundColor: themes.corFundo.cor2 }]}
+          style={[styles.botao, { backgroundColor: themes.tema.vermelho }]}
           onPress={() => mudaTema("vermelho")}
         ></TouchableOpacity>
         <TouchableOpacity
-          style={[styles.botao, { backgroundColor: themes.corFundo.cor3 }]}
+          style={[styles.botao, { backgroundColor: themes.tema.azul }]}
           onPress={() => mudaTema("azul")}
         ></TouchableOpacity>
       </View>

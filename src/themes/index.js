@@ -1,9 +1,9 @@
 export default {
     primaria: "#005788",
     secundaria: "#D9D9D9",
-    corFundo: {
-        padrao: "#3EE023",
-        cor2: "#8B0000",
-        cor3: "#1E90FF",
+    tema: {
+        verde: "#3EE023",
+        vermelho: "#8B0000",
+        azul: "#1E90FF",
     }
 }

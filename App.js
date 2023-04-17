@@ -6,7 +6,7 @@ import Configuracoes from "./src/components/Configuracoes";
 import themes from "./src/themes";
 
 export default function App() {
-  const [tema, setTema] = useState(themes.corFundo.padrao);
+  const [tema, setTema] = useState(themes.tema.verde);
 
   return (
     <View style={styles.conteudo}>
