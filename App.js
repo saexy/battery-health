@@ -12,10 +12,9 @@ export default function App() {
 
   return (
     <View style={styles.conteudo}>
-      <Text style={styles.titulo}>Battery Health</Text>
       <NivelBateria tema={tema} />
-      <Temas onChange={setTema} />
       <Configuracoes tema={tema}></Configuracoes>
+      <Temas onChange={setTema} />
     </View>
   );
 }
@@ -27,13 +26,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#F1F1F1",
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-evenly",
     flexDirection: "column",
     padding: 40,
-  },
-  titulo: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: themes.primaria,
-    marginBottom: 20,
   },
 });

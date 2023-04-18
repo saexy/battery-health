@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import themes from "../themes";
+import { MotiView } from "moti";
 
 const Temas = (props) => {
 
@@ -10,23 +11,23 @@ const Temas = (props) => {
   };
 
   return (
-    <View style={styles.conteudo}>
+    <MotiView style={styles.conteudo} from={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: 'timing', duration: 1500 }}>
       <Text style={styles.titulo}>Temas</Text>
       <View style={styles.botoes}>
         <TouchableOpacity
-          style={[styles.botao, { backgroundColor: themes.tema.verde }]}
+          style={[styles.botao, { backgroundColor: themes.tema.verde.primeiro }]}
           onPress={() => mudaTema("verde")}
         ></TouchableOpacity>
         <TouchableOpacity
-          style={[styles.botao, { backgroundColor: themes.tema.vermelho }]}
+          style={[styles.botao, { backgroundColor: themes.tema.vermelho.primeiro }]}
           onPress={() => mudaTema("vermelho")}
         ></TouchableOpacity>
         <TouchableOpacity
-          style={[styles.botao, { backgroundColor: themes.tema.azul }]}
+          style={[styles.botao, { backgroundColor: themes.tema.azul.primeiro }]}
           onPress={() => mudaTema("azul")}
         ></TouchableOpacity>
       </View>
-    </View>
+    </MotiView>
   );
 };
 
@@ -34,14 +35,14 @@ const styles = StyleSheet.create({
   conteudo: {
     width: "90%",
     display: "flex",
-    marginTop: "30%",
   },
   titulo: {
     color: themes.primaria,
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
-    marginBottom: 15,
+    marginBottom: 5,
+    marginTop: -12,
   },
   botoes: {
     display: "flex",
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 2,
     borderColor: "black",
+    marginTop: 5
   },
   botao: {
     width: "30%",

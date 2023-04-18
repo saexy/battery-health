@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Switch } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import themes from "../themes";
 import * as Battery from "expo-battery";
+import { MotiView } from "moti";
 
 const Configuracoes = (props) => {
   
@@ -26,31 +28,23 @@ const Configuracoes = (props) => {
   }, []);
 
   return (
-    <View style={styles.config}>
+    <MotiView style={styles.config} from={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: 'timing', duration: 1000 }}>
       <Text style={styles.titulo}>
         Configurações
       </Text>
       <View style={styles.actions}>
         <View style={styles.action}>
           <Text style={styles.label}>Modo Economia de Bateria</Text>
-          <Switch
-            trackColor={{ false: "#B6B4B4", true: "#B6B4B4" }}
-            thumbColor={modoBateriaBaixa ? props.tema : "#f4f3f4"}
-            value={modoBateriaBaixa}
-          />
+          <AntDesign name={modoBateriaBaixa ? "checkcircle" : "closecircleo"} size={25} color={props.tema.terceiro} />
         </View>
         <View style={styles.action}>
           <Text style={styles.label}>
             Otimização de Bateria Ativo no Aplicativo
           </Text>
-          <Switch
-            trackColor={{ false: "#B6B4B4", true: "#B6B4B4" }}
-            thumbColor={modoOtimizacaoBateria ? props.tema : "#f4f3f4"}
-            value={modoOtimizacaoBateria}
-          />
+          <AntDesign name={modoOtimizacaoBateria ? "checkcircle" : "closecircleo"} size={25} color={props.tema.terceiro} />
         </View>
       </View>
-    </View>
+    </MotiView>
   );
 };
 
@@ -58,7 +52,6 @@ const styles = StyleSheet.create({
   config: {
     width: "100%",
     display: "flex",
-    marginTop: "30%",
   },
   titulo: {
     color: themes.primaria,
@@ -66,11 +59,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 15,
+    marginTop: -10,
   },
   actions: {
     width: "100%",
     display: "flex",
     flexDirection: "row",
+    marginTop: 5,
   },
   action: {
     width: "50%",
@@ -78,11 +73,11 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+
   },
   label: {
     textAlign: "center",
     marginBottom: 10,
-    fontWeight: "300",
   },
 });
 
